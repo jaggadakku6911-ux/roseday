@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rose Day My Love 🌹</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #ff8fa3;
+            --bg-color: #fff0f3;
+            --text-color: #590d22;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Floating Hearts Background */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            bottom: -100px;
+            color: var(--secondary-color);
+            opacity: 0.6;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Container for all pages */
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
+            position: relative;
+            min-height: 550px; /* Made slightly taller for videos */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Page Sections */
+        .page {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .page.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        /* --- Page 1: Landing --- */
+        .landing-img {
+            width: 150px;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --- Page 2: VIDEO Gallery --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 videos per row */
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-video {
+            width: 100%;
+            height: 150px; /* Fixed height for uniformity */
+            object-fit: cover; /* Ensures video fills the box neatly */
+            border-radius: 10px;
+            border: 2px solid var(--secondary-color);
+            background: #000;
+        }
+
+        /* --- Page 3: Rose Game --- */
+        .roses-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .rose-item {
+            font-size: 3rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .rose-item:hover {
+            transform: scale(1.2);
+        }
+        .game-message {
+            min-height: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* --- Page 4: Letter --- */
+        .letter-card {
+            background: #fff;
+            border: 2px dashed var(--primary-color);
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            transform: rotate(-2deg);
+            margin: 20px 0;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        }
+        .letter-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            text-align: left;
+        }
+
+        /* --- Page 5: Final --- */
+        .cute-gif {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="heart-bg" id="heartBg"></div>
+
+    <div class="container">
+        
+        <div class="page active" id="page1">
+            <img src="https://media.tenor.com/CS5kHJ6kQoQAAAAi/love-confess.gif" alt="Love Confess Gif" class="landing-img" style="width: 100%; max-width: 250px; border-radius: 15px;">
+            
+            <h1>Happy Rose Day Baby</h1>
+            <p>A rose for the person who makes my world more beautiful just by being in it. 🌹</p>
+            <button class="btn" onclick="nextPage('page2')">Open Website</button>
+        </div>
+
+        <div class="page" id="page2">
+            <h1>Our Love In Motion</h1>
+            <p>Memories are better when they move...</p>
+            
+            <div class="gallery-grid">
+                <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="gallery-video" controls></video>
+                <video src="https://www.w3schools.com/html/movie.mp4" class="gallery-video" controls></video>
+                <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="gallery-video" controls></video>
+                <video src="https://www.w3schools.com/html/movie.mp4" class="gallery-video" controls></video>
+            </div>
+            
+            <button class="btn" onclick="nextPage('page3')">Next >></button>
+        </div>
+
+        <div class="page" id="page3">
+            <h1>Pick a Rose</h1>
+            <p>One of these roses holds a secret message...</p>
+            
+            <div class="roses-container">
+                <div class="rose-item" onclick="checkRose(this, 1)">🌹</div>
+                <div class="rose-item" onclick="checkRose(this, 2)">🌹</div>
+                <div class="rose-item" onclick="checkRose(this, 3)">🌹</div>
+            </div>
+            
+            <p id="gameMsg" class="game-message">Choose one!</p>
+            <button class="btn" id="foundBtn" style="display: none;" onclick="nextPage('page4')">Open Letter</button>
+        </div>
+
+        <div class="page" id="page4">
+            <h1>From My Heart</h1>
+            <div class="letter-card">
+                <p class="letter-text">
+                    My Dearest,<br><br>
+                    Just like a rose, your love fills my life with fragrance and color. On this special day, I want to tell you that you are my most precious treasure.<br><br>
+                    I promise to keep our love blooming forever.<br><br>
+                    Always Yours ❤️
+                </p>
+            </div>
+            <button class="btn" onclick="nextPage('page5')">One Final Note</button>
+        </div>
+
+        <div class="page" id="page5">
+            <h1>I Love You</h1>
+            
+            <img src="https://media.tenor.com/aMOxt0o16TQAAAAi/bubu-bubu-dudu.gif" alt="Cute Bubu Dudu" class="cute-gif">
+            
+            <p>Thank you for being my constant bloom. Wishing you a day as beautiful as your smile.</p>
+            <button class="btn" onclick="location.reload()">Happy Rose Day Once Again</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Page Navigation
+        function nextPage(id) {
+            // Pause any playing videos before moving to next page
+            document.querySelectorAll('video').forEach(vid => vid.pause());
+
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        // Rose Game Logic
+        function checkRose(element, index) {
+            const msg = document.getElementById('gameMsg');
+            const btn = document.getElementById('foundBtn');
+            
+            document.querySelectorAll('.rose-item').forEach(r => r.style.transform = 'scale(1)');
+
+            if (index === 3) { 
+                msg.innerHTML = "You found it! Opening the letter... 💌";
+                msg.style.color = "#d90429";
+                element.style.transform = "scale(1.5) rotate(10deg)";
+                setTimeout(() => {
+                    btn.style.display = "inline-block";
+                }, 500);
+            } else {
+                const phrases = ["This one is pretty, but try another!", "Nope, not this one!", "Keep looking, my love!"];
+                msg.innerHTML = phrases[index - 1];
+                msg.style.color = "#590d22";
+                element.style.opacity = "0.5"; 
+            }
+        }
+
+        // Floating Hearts Background Logic
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's'; 
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px'; 
+            
+            document.getElementById('heartBg').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300); 
+    </script>
+</body>
+</html>
