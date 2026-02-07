@@ -62,7 +62,7 @@
             padding: 20px;
             box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
             position: relative;
-            min-height: 550px; /* Made slightly taller for videos */
+            min-height: 550px; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -129,24 +129,6 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* --- Page 2: VIDEO Gallery --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 videos per row */
-            gap: 10px;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-        
-        .gallery-video {
-            width: 100%;
-            height: 150px; /* Fixed height for uniformity */
-            object-fit: cover; /* Ensures video fills the box neatly */
-            border-radius: 10px;
-            border: 2px solid var(--secondary-color);
-            background: #000;
-        }
-
         /* --- Page 3: Rose Game --- */
         .roses-container {
             display: flex;
@@ -206,21 +188,7 @@
             
             <h1>Happy Rose Day Baby</h1>
             <p>A rose for the person who makes my world more beautiful just by being in it. 🌹</p>
-            <button class="btn" onclick="nextPage('page2')">Open Website</button>
-        </div>
-
-        <div class="page" id="page2">
-            <h1>Our Love In Motion</h1>
-            <p>Memories are better when they move...</p>
-            
-            <div class="gallery-grid">
-                <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="gallery-video" controls></video>
-                <video src="https://www.w3schools.com/html/movie.mp4" class="gallery-video" controls></video>
-                <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="gallery-video" controls></video>
-                <video src="https://www.w3schools.com/html/movie.mp4" class="gallery-video" controls></video>
-            </div>
-            
-            <button class="btn" onclick="nextPage('page3')">Next >></button>
+            <button class="btn" onclick="nextPage('page3')">Open Website</button>
         </div>
 
         <div class="page" id="page3">
@@ -264,7 +232,7 @@
     <script>
         // Page Navigation
         function nextPage(id) {
-            // Pause any playing videos before moving to next page
+            // This line is kept safe; it won't find videos but won't break the code
             document.querySelectorAll('video').forEach(vid => vid.pause());
 
             const pages = document.querySelectorAll('.page');
